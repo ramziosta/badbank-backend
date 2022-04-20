@@ -20,7 +20,7 @@ mongoose.set('useNewUrlParser', true);
 mongoose.set('useFindAndModify', false);
 mongoose.set('useCreateIndex', true);
 
-app.use(express.static(path.join(__dirname, '../Badbank/build/static')));
+app.use(express.static(path.join(__dirname, '../Badbank/build')));
 
 app.get('/', function(req, res){
  res.send('hello')
@@ -43,7 +43,7 @@ app.post("/register", async (req, res) => {
   }
 });
 
-app.post("/api/login", async (req, res) => {
+app.post("/login", async (req, res) => {
   const user = await User.findOne({
     email: req.body.email,
     pwd: req.body.pwd,
@@ -70,7 +70,7 @@ app.post("/api/login", async (req, res) => {
   }
 });
 
-app.get("/api/quote", async (req, res) => {
+app.get("/account", async (req, res) => {
   const token = req.headers["x-access-token"];
 
   try {
@@ -85,7 +85,7 @@ app.get("/api/quote", async (req, res) => {
   }
 });
 
-app.post("/api/quote", async (req, res) => {
+app.post("/account", async (req, res) => {
   const token = req.headers["x-access-token"];
 
   try {
