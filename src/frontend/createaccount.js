@@ -140,7 +140,7 @@ function CreateAccount() {
     }
 
     //creates a random last 4 digit account number
-    // let accountNumber = Math.floor(Math.random() * 10000);
+    let accountNumber = Math.floor(Math.random() * 10000);
 
     setAccountNumber(accountNumber);
     console.log("🏦 " + accountNumber);
@@ -165,7 +165,7 @@ function CreateAccount() {
       transactionDate: timeStamp,
       transactionType: "New account credit",
       activity: "New account registration",
-      accountNumber:  Math.floor(Math.random() * 10000) ,
+      accountNumber:  accountNumber ,
       accountType:accountType ,
     });
 //############# serverconnection ###########################
